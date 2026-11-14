@@ -1,5 +1,110 @@
 [
  {
+  "no": 1,
+  "folder": "01-sort",
+  "title": "Insertion Sort vs Merge Sort",
+  "q": "Which sort finishes first: insertion sort or merge sort?",
+  "r1": "Small lists (6 to 10 items)",
+  "r1res": "6 items: insertion 23 steps, merge 26. Insertion leads until the 10-item list",
+  "r1w": "Insertion sort",
+  "r2": "All nine lists, up to 256 items",
+  "r2res": "Merge 6,685 steps in total, insertion 44,591",
+  "r2w": "Merge sort",
+  "rule": "Insertion sort (O(n²)) wins on tiny lists; merge sort (O(n log n)) wins as lists grow. Python's own sort uses both.",
+  "iq": "Why would a real sort use insertion sort at all?",
+  "ia": "On a handful of items it does less work than merge sort, so libraries sort short runs with it and merge the runs (CPython's list sort does this).",
+  "run": [
+   "python3 race.py   # about a minute"
+  ],
+  "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one comparison or one array write. For each size, a typical shuffle (closest to the average of 2,000), seed 19.",
+  "reel": "https://www.instagram.com/reel/DfJpLa0DRX3/",
+  "kind": "counted"
+ },
+ {
+  "no": 2,
+  "folder": "02-search",
+  "title": "Linear Scan vs Binary Search",
+  "q": "Searching 128 items 64 times: linear scan or binary search?",
+  "r1": "The first 1,629 steps",
+  "r1res": "Binary search spends them sorting and finds nothing; the scan is already finding items",
+  "r1w": "Linear scan",
+  "r2": "Find all 64",
+  "r2res": "Binary 2,343 steps (sort included); scan 4,116. When binary finished, scan had found 34",
+  "r2w": "Binary search",
+  "rule": "Search once: just scan. Search a lot: sort first, then binary search. That is why databases keep sorted indexes.",
+  "iq": "When is binary search not worth it?",
+  "ia": "When you search only once or twice: sorting costs more than the scans you save. It pays off over many searches.",
+  "run": [
+   "python3 race.py   # about 20 seconds"
+  ],
+  "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one comparison or one array write. A typical draw of list and targets (closest to the average of 3,000), seed 20.",
+  "reel": "https://www.instagram.com/reel/DfMxc2GFm7D/",
+  "kind": "counted"
+ },
+ {
+  "no": 3,
+  "folder": "03-maze",
+  "title": "DFS vs BFS",
+  "q": "Escaping a maze: depth-first or breadth-first search?",
+  "r1": "Reach the exit",
+  "r1res": "DFS after 75 cells checked, BFS after 136",
+  "r1w": "DFS",
+  "r2": "Find the shortest route",
+  "r2res": "BFS's route is 35 cells (the shortest); DFS's is 57",
+  "r2w": "BFS",
+  "rule": "Any way out: DFS. The shortest way: BFS. Over 3,000 mazes, DFS got out first in 94% and took the longer route in 94%.",
+  "iq": "Why does BFS always find the shortest path in an unweighted grid?",
+  "ia": "It checks every cell 1 step away, then 2, then 3, so the first time it reaches the exit is by the fewest steps.",
+  "run": [
+   "python3 race.py"
+  ],
+  "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one cell taken off the stack or queue. 13 x 13 maze with a few loops, a typical one of 3,000, seed 25.",
+  "reel": "https://www.instagram.com/reel/DfZTrwMErfj/",
+  "kind": "counted"
+ },
+ {
+  "no": 4,
+  "folder": "04-route",
+  "title": "Dijkstra vs A*",
+  "q": "On real city roads, which finds the shortest route with less work: Dijkstra or A*?",
+  "r1": "Junctions checked, MG Road metro to Indiranagar metro (Bengaluru)",
+  "r1res": "A* 746, Dijkstra 13,406",
+  "r1w": "A*",
+  "r2": "Route found",
+  "r2res": "Both: the same 3.74 km route",
+  "r2w": "Tie",
+  "rule": "A* adds one guess, the straight-line distance to the goal. It still finds the shortest route, with far less searching.",
+  "iq": "Why is A* still guaranteed the shortest route?",
+  "ia": "Its guess, the straight-line distance, is never longer than the real road distance, so it never skips a shorter path.",
+  "run": [
+   "python3 route_race.py osm.json"
+  ],
+  "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one junction taken off the queue. Roads: OpenStreetMap data read on 6 Nov 2026, included as osm.json (© OpenStreetMap contributors, ODbL). Fresh downloads can differ slightly.",
+  "reel": "https://www.instagram.com/reel/DfcO3d2lGuW/",
+  "kind": "counted"
+ },
+ {
+  "no": 5,
+  "folder": "05-big-o",
+  "title": "O(1) vs O(2ⁿ)",
+  "q": "Same 60 numbers, five algorithms: how many steps does each take?",
+  "r1": "O(1), O(log n), O(n), O(n²) on 60 numbers",
+  "r1res": "1, 5, 60 and 1,770 steps",
+  "r1w": "O(1)",
+  "r2": "O(2ⁿ): try every subset of the 60",
+  "r2res": "2⁶⁰ subsets: about 36.5 years at a billion a second",
+  "r2w": "Nobody",
+  "rule": "The O tells you how the work grows: one more number doubles O(2ⁿ), adds about 120 steps to O(n²), and changes nothing for O(1).",
+  "iq": "Two numbers that add up to a target: how do you beat O(n²)?",
+  "ia": "Remember the numbers you have seen in a dict and check for target minus x: one pass, O(n).",
+  "run": [
+   "python3 bigo_race.py"
+  ],
+  "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. The O(2ⁿ) lane is run for real on 10, 16 and 20 numbers to show it is exactly 2ⁿ; 60 is calculated.",
+  "reel": "https://www.instagram.com/reel/DfeucPTj9xj/",
+  "kind": "counted"
+ },
+ {
   "no": 6,
   "folder": "06-cpu-vs-gpu",
   "title": "CPU vs GPU",
@@ -18,7 +123,29 @@
    "python3 cpu_vs_gpu.py"
   ],
   "setup": "Intel Core i9-14900HX laptop with an NVIDIA RTX 4070 Laptop GPU, PyTorch 2.8, median of 3 runs.",
-  "reel": "https://www.instagram.com/reel/DfhTzWFFL2x/"
+  "reel": "https://www.instagram.com/reel/DfhTzWFFL2x/",
+  "kind": "timed"
+ },
+ {
+  "no": 7,
+  "folder": "07-top-k",
+  "title": "Sort All vs Heap of 10",
+  "q": "Top 10 out of 1,000,000 scores: sort everything or keep a heap of 10?",
+  "r1": "Comparisons",
+  "r1res": "Heap 1,000,419, sort 18,605,151: same top 10",
+  "r1w": "Heap of 10",
+  "r2": "Time in Python",
+  "r2res": "Heap 21 ms, sort 151 ms (one laptop; times vary)",
+  "r2w": "Heap of 10",
+  "rule": "For the top K of anything, keep a heap of size K: one comparison per item for most items. In Python: heapq.nlargest(10, scores).",
+  "iq": "Find the K largest numbers in a huge list.",
+  "ia": "Keep a min-heap of K; replace its smallest whenever a bigger number arrives. O(n log K) instead of O(n log n) for a full sort.",
+  "run": [
+   "python3 race.py"
+  ],
+  "setup": "The comparison counts are counted, not timed, and match on any machine (seed 34). The milliseconds are from one Intel Core i9-14900HX laptop, Python 3.10, median of 3, and will differ on yours.",
+  "reel": "https://www.instagram.com/reel/Dfj5Mv4gdnR/",
+  "kind": "counted + timed"
  },
  {
   "no": 8,
@@ -40,7 +167,8 @@
    "python3 sum.py"
   ],
   "setup": "Intel Core i9-14900HX laptop, Python 3.10, NumPy 1.26, gcc 13.3 with -O2, median of 7 runs.",
-  "reel": "https://www.instagram.com/reel/Dfmc0c7jqz2/"
+  "reel": "https://www.instagram.com/reel/Dfmc0c7jqz2/",
+  "kind": "timed"
  },
  {
   "no": 9,
@@ -64,7 +192,8 @@
    "rm data.bin"
   ],
   "setup": "Intel Core i9-14900HX laptop, NVMe SSD read from Linux inside WSL2 (which adds some delay to every disk request), gcc -O2, median of 5 runs. Round 1 reads with the system's in-memory copy switched off; read the normal way after one full read, the same lookups took about 58 ms.",
-  "reel": "https://www.instagram.com/reel/DfpBCuCDo2F/"
+  "reel": "https://www.instagram.com/reel/DfpBCuCDo2F/",
+  "kind": "timed"
  },
  {
   "no": 10,
@@ -84,7 +213,8 @@
    "python3 race.py"
   ],
   "setup": "Intel Core i9-14900HX laptop (20 cores), Python 3.10 on Linux, standard build with the GIL, median of 5 runs.",
-  "reel": "https://www.instagram.com/reel/Dfrl1w8jN62/"
+  "reel": "https://www.instagram.com/reel/Dfrl1w8jN62/",
+  "kind": "timed"
  },
  {
   "no": 11,
@@ -104,7 +234,8 @@
    "python3 race.py .     # creates and deletes two test databases in the given folder (about 600 MB at peak)"
   ],
   "setup": "Intel Core i9-14900HX laptop, SQLite 3.52 from Python, median of 3 runs, lookup is the best of 5.",
-  "reel": "https://www.instagram.com/reel/DfuLNKNjQSt/"
+  "reel": "https://www.instagram.com/reel/DfuLNKNjQSt/",
+  "kind": "timed"
  },
  {
   "no": 12,
@@ -124,6 +255,7 @@
    "gcc -O2 -o race race.c && ./race"
   ],
   "setup": "Intel Core i9-14900HX laptop, gcc -O2, median of 5 runs (14 Nov 2026).",
-  "reel": ""
+  "reel": "",
+  "kind": "timed"
  }
 ]

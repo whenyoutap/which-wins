@@ -41,6 +41,7 @@ details{margin:0 0 10px}summary{cursor:pointer;font:700 14px "JetBrains Mono",mo
 .links{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:0}.links a{font-weight:700}
 .run{font:700 14px "JetBrains Mono",monospace;background:var(--mint);border:2px solid var(--ink);border-radius:10px;padding:6px 10px;text-decoration:none}
 .soon{color:var(--grey);font-size:14px}
+.kind{font:700 12px "JetBrains Mono",monospace;color:var(--grey);border:2px solid #D9D0BF;border-radius:6px;padding:2px 6px;margin-left:4px;white-space:nowrap}
 .free{display:grid;grid-template-columns:1fr;gap:12px;align-items:center;background:var(--ink);color:var(--paper);border-radius:22px;padding:22px;margin:40px 0 0}
 @media(min-width:640px){.free{grid-template-columns:1fr auto}}.free h2{margin:0;color:var(--yel)}.free p{margin:6px 0 0;color:#D9D0BF}
 .free img{width:150px;justify-self:center}
@@ -60,12 +61,72 @@ footer img{width:110px;display:block;margin:0 auto 8px}footer a{font-weight:700}
   <img class="kage" src="img/kage-point.webp" alt="Kage, the ink ninja, pointing" width="300" height="383">
 </section>
 <h2>Every race so far</h2>
-<p class="how">Times come from one Intel Core i9-14900HX laptop. Yours will differ; the winner of each round should not.</p>
+<p class="how">Races 1 to 5 count steps, so you will get exactly our numbers. Races 6 to 12 are timed on one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not. No. 7 has both.</p>
 <section class="races">
+<article class="race">
+  <a class="thumb" href="https://www.instagram.com/reel/DfJpLa0DRX3/"><img src="img/race-01.webp" alt="Which Wins? No. 1: Insertion Sort vs Merge Sort" loading="lazy" width="180" height="320"></a>
+  <div class="body">
+    <span class="chip">WHICH WINS? #1</span> <span class="kind">counted steps, not timed</span>
+    <h3><span class="pill y">Insertion Sort</span> vs <span class="pill m">Merge Sort</span></h3>
+    <div class="round"><span class="rn r1">ROUND 1</span><b>Small lists (6 to 10 items)</b><code>6 items: insertion 23 steps, merge 26. Insertion leads until the 10-item list</code><span class="win">Winner: Insertion sort</span></div>
+    <div class="round"><span class="rn r2">ROUND 2</span><b>All nine lists, up to 256 items</b><code>Merge 6,685 steps in total, insertion 44,591</code><span class="win">Winner: Merge sort</span></div>
+    <p class="rule">Insertion sort (O(n²)) wins on tiny lists; merge sort (O(n log n)) wins as lists grow. Python&#x27;s own sort uses both.</p>
+    <details><summary>Interview question</summary><p><b>Why would a real sort use insertion sort at all?</b><br>On a handful of items it does less work than merge sort, so libraries sort short runs with it and merge the runs (CPython&#x27;s list sort does this).</p></details>
+    <p class="links"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/01-sort">▶ Run it yourself</a><a href="https://www.instagram.com/reel/DfJpLa0DRX3/">Watch the reel ↗</a></p>
+  </div>
+</article>
+<article class="race">
+  <a class="thumb" href="https://www.instagram.com/reel/DfMxc2GFm7D/"><img src="img/race-02.webp" alt="Which Wins? No. 2: Linear Scan vs Binary Search" loading="lazy" width="180" height="320"></a>
+  <div class="body">
+    <span class="chip">WHICH WINS? #2</span> <span class="kind">counted steps, not timed</span>
+    <h3><span class="pill y">Linear Scan</span> vs <span class="pill m">Binary Search</span></h3>
+    <div class="round"><span class="rn r1">ROUND 1</span><b>The first 1,629 steps</b><code>Binary search spends them sorting and finds nothing; the scan is already finding items</code><span class="win">Winner: Linear scan</span></div>
+    <div class="round"><span class="rn r2">ROUND 2</span><b>Find all 64</b><code>Binary 2,343 steps (sort included); scan 4,116. When binary finished, scan had found 34</code><span class="win">Winner: Binary search</span></div>
+    <p class="rule">Search once: just scan. Search a lot: sort first, then binary search. That is why databases keep sorted indexes.</p>
+    <details><summary>Interview question</summary><p><b>When is binary search not worth it?</b><br>When you search only once or twice: sorting costs more than the scans you save. It pays off over many searches.</p></details>
+    <p class="links"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/02-search">▶ Run it yourself</a><a href="https://www.instagram.com/reel/DfMxc2GFm7D/">Watch the reel ↗</a></p>
+  </div>
+</article>
+<article class="race">
+  <a class="thumb" href="https://www.instagram.com/reel/DfZTrwMErfj/"><img src="img/race-03.webp" alt="Which Wins? No. 3: DFS vs BFS" loading="lazy" width="180" height="320"></a>
+  <div class="body">
+    <span class="chip">WHICH WINS? #3</span> <span class="kind">counted steps, not timed</span>
+    <h3><span class="pill y">DFS</span> vs <span class="pill m">BFS</span></h3>
+    <div class="round"><span class="rn r1">ROUND 1</span><b>Reach the exit</b><code>DFS after 75 cells checked, BFS after 136</code><span class="win">Winner: DFS</span></div>
+    <div class="round"><span class="rn r2">ROUND 2</span><b>Find the shortest route</b><code>BFS&#x27;s route is 35 cells (the shortest); DFS&#x27;s is 57</code><span class="win">Winner: BFS</span></div>
+    <p class="rule">Any way out: DFS. The shortest way: BFS. Over 3,000 mazes, DFS got out first in 94% and took the longer route in 94%.</p>
+    <details><summary>Interview question</summary><p><b>Why does BFS always find the shortest path in an unweighted grid?</b><br>It checks every cell 1 step away, then 2, then 3, so the first time it reaches the exit is by the fewest steps.</p></details>
+    <p class="links"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/03-maze">▶ Run it yourself</a><a href="https://www.instagram.com/reel/DfZTrwMErfj/">Watch the reel ↗</a></p>
+  </div>
+</article>
+<article class="race">
+  <a class="thumb" href="https://www.instagram.com/reel/DfcO3d2lGuW/"><img src="img/race-04.webp" alt="Which Wins? No. 4: Dijkstra vs A*" loading="lazy" width="180" height="320"></a>
+  <div class="body">
+    <span class="chip">WHICH WINS? #4</span> <span class="kind">counted steps, not timed</span>
+    <h3><span class="pill y">Dijkstra</span> vs <span class="pill m">A*</span></h3>
+    <div class="round"><span class="rn r1">ROUND 1</span><b>Junctions checked, MG Road metro to Indiranagar metro (Bengaluru)</b><code>A* 746, Dijkstra 13,406</code><span class="win">Winner: A*</span></div>
+    <div class="round"><span class="rn r2">ROUND 2</span><b>Route found</b><code>Both: the same 3.74 km route</code><span class="win">Winner: Tie</span></div>
+    <p class="rule">A* adds one guess, the straight-line distance to the goal. It still finds the shortest route, with far less searching.</p>
+    <details><summary>Interview question</summary><p><b>Why is A* still guaranteed the shortest route?</b><br>Its guess, the straight-line distance, is never longer than the real road distance, so it never skips a shorter path.</p></details>
+    <p class="links"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/04-route">▶ Run it yourself</a><a href="https://www.instagram.com/reel/DfcO3d2lGuW/">Watch the reel ↗</a></p>
+  </div>
+</article>
+<article class="race">
+  <a class="thumb" href="https://www.instagram.com/reel/DfeucPTj9xj/"><img src="img/race-05.webp" alt="Which Wins? No. 5: O(1) vs O(2ⁿ)" loading="lazy" width="180" height="320"></a>
+  <div class="body">
+    <span class="chip">WHICH WINS? #5</span> <span class="kind">counted steps, not timed</span>
+    <h3><span class="pill y">O(1)</span> vs <span class="pill m">O(2ⁿ)</span></h3>
+    <div class="round"><span class="rn r1">ROUND 1</span><b>O(1), O(log n), O(n), O(n²) on 60 numbers</b><code>1, 5, 60 and 1,770 steps</code><span class="win">Winner: O(1)</span></div>
+    <div class="round"><span class="rn r2">ROUND 2</span><b>O(2ⁿ): try every subset of the 60</b><code>2⁶⁰ subsets: about 36.5 years at a billion a second</code><span class="win">Winner: Nobody</span></div>
+    <p class="rule">The O tells you how the work grows: one more number doubles O(2ⁿ), adds about 120 steps to O(n²), and changes nothing for O(1).</p>
+    <details><summary>Interview question</summary><p><b>Two numbers that add up to a target: how do you beat O(n²)?</b><br>Remember the numbers you have seen in a dict and check for target minus x: one pass, O(n).</p></details>
+    <p class="links"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/05-big-o">▶ Run it yourself</a><a href="https://www.instagram.com/reel/DfeucPTj9xj/">Watch the reel ↗</a></p>
+  </div>
+</article>
 <article class="race">
   <a class="thumb" href="https://www.instagram.com/reel/DfhTzWFFL2x/"><img src="img/race-06.webp" alt="Which Wins? No. 6: CPU vs GPU" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #6</span>
+    <span class="chip">WHICH WINS? #6</span> <span class="kind">timed on one laptop</span>
     <h3><span class="pill y">CPU</span> vs <span class="pill m">GPU</span></h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>Multiply two 4096 x 4096 matrices</b><code>GPU 14 ms, CPU 162 ms: GPU 11x faster</code><span class="win">Winner: GPU</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>10,000 steps, each needing the step before (x = x * 0.999 + 1)</b><code>CPU 36 ms, GPU 156 ms: CPU 4x faster</code><span class="win">Winner: CPU</span></div>
@@ -75,9 +136,21 @@ footer img{width:110px;display:block;margin:0 auto 8px}footer a{font-weight:700}
   </div>
 </article>
 <article class="race">
+  <a class="thumb" href="https://www.instagram.com/reel/Dfj5Mv4gdnR/"><img src="img/race-07.webp" alt="Which Wins? No. 7: Sort All vs Heap of 10" loading="lazy" width="180" height="320"></a>
+  <div class="body">
+    <span class="chip">WHICH WINS? #7</span> <span class="kind">counted, and timed</span>
+    <h3><span class="pill y">Sort All</span> vs <span class="pill m">Heap of 10</span></h3>
+    <div class="round"><span class="rn r1">ROUND 1</span><b>Comparisons</b><code>Heap 1,000,419, sort 18,605,151: same top 10</code><span class="win">Winner: Heap of 10</span></div>
+    <div class="round"><span class="rn r2">ROUND 2</span><b>Time in Python</b><code>Heap 21 ms, sort 151 ms (one laptop; times vary)</code><span class="win">Winner: Heap of 10</span></div>
+    <p class="rule">For the top K of anything, keep a heap of size K: one comparison per item for most items. In Python: heapq.nlargest(10, scores).</p>
+    <details><summary>Interview question</summary><p><b>Find the K largest numbers in a huge list.</b><br>Keep a min-heap of K; replace its smallest whenever a bigger number arrives. O(n log K) instead of O(n log n) for a full sort.</p></details>
+    <p class="links"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/07-top-k">▶ Run it yourself</a><a href="https://www.instagram.com/reel/Dfj5Mv4gdnR/">Watch the reel ↗</a></p>
+  </div>
+</article>
+<article class="race">
   <a class="thumb" href="https://www.instagram.com/reel/Dfmc0c7jqz2/"><img src="img/race-08.webp" alt="Which Wins? No. 8: Python vs C" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #8</span>
+    <span class="chip">WHICH WINS? #8</span> <span class="kind">timed on one laptop</span>
     <h3><span class="pill y">Python</span> vs <span class="pill m">C</span></h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>Add up the squares of 100,000,000 numbers in a plain loop</b><code>C 63 ms, Python 3,882 ms: C 62x faster</code><span class="win">Winner: C</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>Same job, Python makes one NumPy call: np.dot(a, a)</b><code>Python 34 ms, C&#x27;s loop 63 ms</code><span class="win">Winner: Python (NumPy)</span></div>
@@ -89,7 +162,7 @@ footer img{width:110px;display:block;margin:0 auto 8px}footer a{font-weight:700}
 <article class="race">
   <a class="thumb" href="https://www.instagram.com/reel/DfpBCuCDo2F/"><img src="img/race-09.webp" alt="Which Wins? No. 9: RAM vs SSD" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #9</span>
+    <span class="chip">WHICH WINS? #9</span> <span class="kind">timed on one laptop</span>
     <h3><span class="pill y">RAM</span> vs <span class="pill m">SSD</span></h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>Look up 100,000 records of 4 KB at random places in the same 1 GB</b><code>RAM 46 ms, SSD 11,249 ms: RAM 245x faster</code><span class="win">Winner: RAM</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>The program holding the data is killed (kill -9)</b><code>RAM: 0 bytes left. SSD file: all 1,073,741,824 bytes back, same checksum</code><span class="win">Winner: SSD</span></div>
@@ -101,7 +174,7 @@ footer img{width:110px;display:block;margin:0 auto 8px}footer a{font-weight:700}
 <article class="race">
   <a class="thumb" href="https://www.instagram.com/reel/Dfrl1w8jN62/"><img src="img/race-10.webp" alt="Which Wins? No. 10: Threads vs Processes" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #10</span>
+    <span class="chip">WHICH WINS? #10</span> <span class="kind">timed on one laptop</span>
     <h3><span class="pill y">Threads</span> vs <span class="pill m">Processes</span></h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>8 jobs of pure maths, all started at once</b><code>8 processes 132 ms, 8 threads 702 ms: processes 5.3x faster</code><span class="win">Winner: Processes</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>1,000 tiny jobs, a new worker started for each</b><code>Threads 65 ms, processes 1,124 ms: threads 17x faster</code><span class="win">Winner: Threads</span></div>
@@ -113,7 +186,7 @@ footer img{width:110px;display:block;margin:0 auto 8px}footer a{font-weight:700}
 <article class="race">
   <a class="thumb" href="https://www.instagram.com/reel/DfuLNKNjQSt/"><img src="img/race-11.webp" alt="Which Wins? No. 11: Index vs No Index" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #11</span>
+    <span class="chip">WHICH WINS? #11</span> <span class="kind">timed on one laptop</span>
     <h3><span class="pill y">Index</span> vs <span class="pill m">No Index</span></h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>Find one user by email among 5,000,000</b><code>With index 0.0031 ms, without 121 ms: about 39,000x faster</code><span class="win">Winner: Index</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>Add 1,000,000 new users</b><code>Without index 507 ms, with index 920 ms: 1.8x faster; the index also doubled the file (191 MB to 381 MB)</code><span class="win">Winner: No index</span></div>
@@ -125,7 +198,7 @@ footer img{width:110px;display:block;margin:0 auto 8px}footer a{font-weight:700}
 <article class="race">
   <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-12.webp" alt="Which Wins? No. 12: Array vs Linked List" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #12</span>
+    <span class="chip">WHICH WINS? #12</span> <span class="kind">timed on one laptop</span>
     <h3><span class="pill y">Array</span> vs <span class="pill m">Linked List</span></h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>Add up 10,000,000 values</b><code>Array 5.3 ms, shuffled linked list 1,060 ms</code><span class="win">Winner: Array</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>Insert 2,000 values at the front of 200,000</b><code>Linked list 0.002 ms, array 42 ms</code><span class="win">Winner: Linked list</span></div>
