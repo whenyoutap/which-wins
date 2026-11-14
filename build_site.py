@@ -21,7 +21,7 @@ for r in R:
   <div class="body">
     <p class="meta"><span class="no">#{r["no"]}</span><span class="new" hidden>NEW</span></p>
     <h3>{vs(r["title"])}</h3>
-    <ol class="rounds"><li><span>{E(r["r1s"])}</span><b>{E(r["r1sw"])}</b></li><li><span>{E(r["r2s"])}</span><b>{E(r["r2sw"])}</b></li></ol>
+    <ol class="rounds"><li data-w="{r["r1w_side"]}" data-x="{r["r1x"]}"><span>{E(r["r1s"])}</span><b>{E(r["r1sw"])}</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="{r["r2w_side"]}" data-x="{r["r2x"]}"><span>{E(r["r2s"])}</span><b>{E(r["r2sw"])}</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
     <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/{E(r["folder"])}">▶ Run it</a>{watch}</p>
     <details><summary>Details</summary>
       <p><b>Round 1.</b> {E(r["r1"])}: {E(r["r1res"])}</p>
@@ -71,7 +71,8 @@ h2{{font-size:clamp(26px,5vw,34px);margin:0 0 18px}}
 .new{{font:700 12px "JetBrains Mono",monospace;background:var(--red);color:#fff;border-radius:6px;padding:2px 8px}}
 .race h3{{font-size:clamp(20px,4.2vw,24px);line-height:1.25;margin:8px 0 10px}}.vs{{font-size:.8em;color:var(--grey)}}
 .rounds{{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:6px}}
-.rounds li{{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:6px;font-size:15px}}
+.rounds li{{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;border-bottom:1px solid var(--line);padding-bottom:8px;font-size:15px}}
+.lanes{{flex-basis:100%;display:grid;gap:3px;margin-top:4px}}.ln{{display:block;height:6px;border-radius:3px;background:#E6DDCB;position:relative;overflow:hidden}}.ln::after{{content:"";position:absolute;inset:0;width:calc(var(--p,0)*100%);border-radius:3px}}.ln.a::after{{background:#E8B400}}.ln.b::after{{background:#0FB58E}}.ln.done::after{{box-shadow:0 0 0 2px var(--ink) inset}}
 .rounds span{{color:var(--grey)}}.rounds b{{text-align:right}}
 .act{{display:flex;gap:10px;margin:0 0 6px}}
 .run,.ghost{{font:700 14px "JetBrains Mono",monospace;text-decoration:none;border:2px solid var(--ink);border-radius:10px;padding:5px 12px}}.run{{background:var(--mint)}}
@@ -81,6 +82,23 @@ details p{{margin:8px 0 0;font-size:15px}}.rule{{font-weight:700}}.fine{{color:v
 .free h2{{margin:0;color:var(--yel)}}.free p{{margin:4px 0 0;color:#D9D0BF}}
 footer{{margin-top:40px;padding:140px 16px 32px;text-align:center;color:var(--grey);font-size:14px;background:url(img/mountains.webp) center top/1600px auto no-repeat}}
 footer img{{width:90px;display:block;margin:0 auto 8px}}footer a{{font-weight:700}}
+@keyframes rise{{from{{opacity:0;transform:translateY(24px)}}to{{opacity:1;transform:none}}}}
+@keyframes sweep{{from{{background-size:0% 100%}}to{{background-size:100% 100%}}}}
+@keyframes float{{0%,100%{{transform:translateY(0) rotate(-1deg)}}50%{{transform:translateY(-12px) rotate(1deg)}}}}
+@keyframes pop{{0%{{transform:scale(.3);opacity:0}}70%{{transform:scale(1.15)}}100%{{transform:scale(1);opacity:1}}}}
+@keyframes pulse{{50%{{transform:scale(1.12)}}}}
+nav{{animation:rise .6s both}}
+h1{{animation:rise .7s .05s both}}h1 .y{{background:linear-gradient(var(--yel),var(--yel)) no-repeat left/0% 100%;animation:sweep .7s .55s cubic-bezier(.2,.8,.2,1) forwards}}
+.lead{{animation:rise .7s .25s both}}.btns{{animation:rise .7s .4s both}}
+.hero .kage{{animation:pop .8s .3s both,float 4.5s 1.2s ease-in-out infinite}}
+.btn{{transition:transform .15s,box-shadow .15s}}.btn:hover{{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}}.btn:active{{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}}
+.race{{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .2s}}.race.in{{opacity:1;transform:none}}.race:hover{{box-shadow:8px 8px 0 var(--ink)}}
+.thumb img{{transition:transform .3s}}.race:hover .thumb img{{transform:rotate(-2deg) scale(1.04)}}
+.new:not([hidden]){{display:inline-block;animation:pulse 1.4s ease-in-out infinite}}
+.rounds b{{transition:opacity .4s}}.rounds li:not(.ran) b{{opacity:0}}
+.run{{transition:transform .15s}}.run:hover{{transform:translateY(-2px)}}
+footer img{{animation:float 5s ease-in-out infinite}}
+@media(prefers-reduced-motion:reduce){{*{{animation:none!important;transition:none!important}}.race{{opacity:1;transform:none}}.rounds li b{{opacity:1}}h1 .y{{background-size:100% 100%}}}}
 @media(max-width:520px){{.hero{{padding:28px 0 36px}}.hero .kage{{display:none}}.rounds li{{flex-direction:column;gap:0}}.rounds b{{text-align:left}}}}
 </style></head><body><main>
 <nav><a class="brand" href="./"><img src="img/kage-avatar.jpg" alt="">whenyoutap</a><a class="ig" href="https://www.instagram.com/whenyoutap/">Instagram ↗</a></nav>
@@ -100,6 +118,25 @@ footer img{{width:90px;display:block;margin:0 auto 8px}}footer a{{font-weight:70
 </main>
 <footer><img src="img/kage-bow.webp" alt="Kage bowing" width="90" height="119">New race every day on <a href="https://www.instagram.com/whenyoutap/">@whenyoutap</a> · <a href="https://github.com/whenyoutap/which-wins">GitHub</a></footer>
 <script>
+// Cards rise in as they scroll into view; then each round runs a tiny race: the winner's lane fills first, the loser's at its real speed ratio
+// (capped so the page never waits more than about 3 s). Ties fill together; "none" never finishes; "wipe" fills, then empties (the RAM crash).
+const ease = (u) => 1 - Math.pow(1 - Math.min(1, u), 3);
+function race(li) {{
+  const w = li.dataset.w, x = parseFloat(li.dataset.x) || 1, a = li.querySelector(".ln.a"), b = li.querySelector(".ln.b"), T = 700, t0 = performance.now();
+  const lose = (k) => Math.min(1, k / Math.min(x, 4.5)), set = (el, v) => el.style.setProperty("--p", v.toFixed(3));
+  (function step(now) {{ const k = (now - t0) / T; let pa, pb;
+    if (w === "a") {{ pa = ease(k); pb = ease(lose(k)) * (x > 4.5 ? Math.min(1, 4.5 / x * 4) : 1); }}
+    else if (w === "b") {{ pb = ease(k); pa = ease(lose(k)) * (x > 4.5 ? Math.min(1, 4.5 / x * 4) : 1); }}
+    else if (w === "tie") {{ pa = pb = ease(k); }}
+    else if (w === "none") {{ pa = ease(k); pb = Math.min(.04, k * .01); }}
+    else {{ pa = k < 1.2 ? ease(k) : Math.max(0, 1 - (k - 1.2) * 2); pb = ease(k); }}
+    set(a, pa); set(b, pb); if (k >= 1) {{ li.classList.add("ran"); (w === "a" ? a : w === "b" ? b : a).classList.add("done"); }}
+    if (k < 4.6) requestAnimationFrame(step); }})(t0);
+}}
+const io = new IntersectionObserver((es) => es.forEach((e) => {{ if (!e.isIntersecting) return; const c = e.target; io.unobserve(c);
+  setTimeout(() => {{ c.classList.add("in"); c.querySelectorAll(".rounds li").forEach((li, i) => setTimeout(() => race(li), 450 + i * 500)); }}, (c.dataset.i % 2) * 120); }}), {{ threshold: .25 }});
+document.querySelectorAll(".race").forEach((c, i) => {{ c.dataset.i = i; io.observe(c); }});
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll(".rounds li").forEach((li) => {{ li.classList.add("ran"); li.querySelectorAll(".ln").forEach((l) => l.style.setProperty("--p", 1)); }});
 // "NEW" on races posted in the last 3 days (each card carries its posting date).
 document.querySelectorAll(".race[data-posted]").forEach((c) => {{ const d = new Date(c.dataset.posted + "T00:00:00+05:30"); if (Date.now() - d < 3 * 864e5) c.querySelector(".new").hidden = false; }});
 </script></body></html>

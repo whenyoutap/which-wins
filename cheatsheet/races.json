@@ -23,7 +23,11 @@
   "r1s": "Small lists",
   "r1sw": "Insertion sort",
   "r2s": "Big lists",
-  "r2sw": "Merge sort · 6.7× fewer steps"
+  "r2sw": "Merge sort · 6.7× fewer steps",
+  "r1w_side": "a",
+  "r1x": 1.13,
+  "r2w_side": "b",
+  "r2x": 6.67
  },
  {
   "no": 2,
@@ -49,7 +53,11 @@
   "r1s": "First steps",
   "r1sw": "Linear scan",
   "r2s": "Find all 64",
-  "r2sw": "Binary search"
+  "r2sw": "Binary search",
+  "r1w_side": "a",
+  "r1x": 1.5,
+  "r2w_side": "b",
+  "r2x": 1.76
  },
  {
   "no": 3,
@@ -75,7 +83,11 @@
   "r1s": "Get out first",
   "r1sw": "DFS",
   "r2s": "Shortest route",
-  "r2sw": "BFS"
+  "r2sw": "BFS",
+  "r1w_side": "a",
+  "r1x": 1.81,
+  "r2w_side": "b",
+  "r2x": 1.63
  },
  {
   "no": 4,
@@ -101,7 +113,11 @@
   "r1s": "Junctions checked",
   "r1sw": "A* · 18× fewer",
   "r2s": "Route",
-  "r2sw": "Same 3.74 km"
+  "r2sw": "Same 3.74 km",
+  "r1w_side": "b",
+  "r1x": 18,
+  "r2w_side": "tie",
+  "r2x": 1
  },
  {
   "no": 5,
@@ -127,7 +143,11 @@
   "r1s": "60 numbers",
   "r1sw": "O(1) · 1 step",
   "r2s": "Every subset",
-  "r2sw": "O(2ⁿ) · 36.5 years"
+  "r2sw": "O(2ⁿ) · 36.5 years",
+  "r1w_side": "a",
+  "r1x": 1770,
+  "r2w_side": "none",
+  "r2x": 0
  },
  {
   "no": 6,
@@ -154,7 +174,11 @@
   "r1s": "Matrix maths",
   "r1sw": "GPU · 11×",
   "r2s": "Step by step",
-  "r2sw": "CPU · 4×"
+  "r2sw": "CPU · 4×",
+  "r1w_side": "b",
+  "r1x": 11.4,
+  "r2w_side": "a",
+  "r2x": 4.3
  },
  {
   "no": 7,
@@ -180,7 +204,11 @@
   "r1s": "Comparisons",
   "r1sw": "Heap · 18× fewer",
   "r2s": "Time",
-  "r2sw": "Heap · 7×"
+  "r2sw": "Heap · 7×",
+  "r1w_side": "b",
+  "r1x": 18.6,
+  "r2w_side": "b",
+  "r2x": 7.2
  },
  {
   "no": 8,
@@ -208,7 +236,11 @@
   "r1s": "Plain loop",
   "r1sw": "C · 62×",
   "r2s": "One NumPy call",
-  "r2sw": "Python"
+  "r2sw": "Python",
+  "r1w_side": "b",
+  "r1x": 62,
+  "r2w_side": "a",
+  "r2x": 1.85
  },
  {
   "no": 9,
@@ -238,7 +270,11 @@
   "r1s": "Random reads",
   "r1sw": "RAM · 245×",
   "r2s": "Program crashes",
-  "r2sw": "SSD keeps it"
+  "r2sw": "SSD keeps it",
+  "r1w_side": "a",
+  "r1x": 245,
+  "r2w_side": "wipe",
+  "r2x": 0
  },
  {
   "no": 10,
@@ -264,7 +300,11 @@
   "r1s": "Heavy maths",
   "r1sw": "Processes · 5.3×",
   "r2s": "1,000 tiny jobs",
-  "r2sw": "Threads · 17×"
+  "r2sw": "Threads · 17×",
+  "r1w_side": "b",
+  "r1x": 5.3,
+  "r2w_side": "a",
+  "r2x": 17
  },
  {
   "no": 11,
@@ -290,7 +330,11 @@
   "r1s": "Find one user",
   "r1sw": "Index · 39,000×",
   "r2s": "Add 1M rows",
-  "r2sw": "No index · 1.8×"
+  "r2sw": "No index · 1.8×",
+  "r1w_side": "a",
+  "r1x": 39000,
+  "r2w_side": "b",
+  "r2x": 1.8
  },
  {
   "no": 12,
@@ -316,6 +360,10 @@
   "r1s": "Read everything",
   "r1sw": "Array · 201×",
   "r2s": "Insert at front",
-  "r2sw": "Linked list"
+  "r2sw": "Linked list",
+  "r1w_side": "a",
+  "r1x": 201,
+  "r2w_side": "b",
+  "r2x": 23000
  }
 ]
