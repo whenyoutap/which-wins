@@ -28,4 +28,4 @@ Lots of reads: add the index. Lots of writes: keep indexes few.
 **Why not index every column?**
 Each index makes every insert and update slower and takes disk space.
 
-The reel is coming soon on [@whenyoutap](https://www.instagram.com/whenyoutap/).
+Watch the reel: https://www.instagram.com/reel/DfuLNKNjQSt/

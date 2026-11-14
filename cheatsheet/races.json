@@ -104,7 +104,7 @@
    "python3 race.py .     # creates and deletes two test databases in the given folder (about 600 MB at peak)"
   ],
   "setup": "Intel Core i9-14900HX laptop, SQLite 3.52 from Python, median of 3 runs, lookup is the best of 5.",
-  "reel": ""
+  "reel": "https://www.instagram.com/reel/DfuLNKNjQSt/"
  },
  {
   "no": 12,
