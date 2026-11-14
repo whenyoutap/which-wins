@@ -14,12 +14,12 @@ def vs(title):
 
 
 cards = []
-for i, r in enumerate(R):
+for i, r in enumerate(sorted(R, key=lambda r: -r["no"])):  # newest first
     reel = f'<a href="{E(r["reel"])}">Watch the reel ↗</a>' if r.get("reel") else '<span class="soon">Reel coming soon</span>'
-    cards.append(f'''<article class="race">
+    cards.append(f'''<article class="race" data-posted="{E(r.get("posted", ""))}">
   <a class="thumb" href="{E(r["reel"] or "https://www.instagram.com/whenyoutap/")}"><img src="img/race-{r["no"]:02d}.webp" alt="Which Wins? No. {r["no"]}: {E(r["title"])}" loading="lazy" width="180" height="320"></a>
   <div class="body">
-    <span class="chip">WHICH WINS? #{r["no"]}</span> <span class="kind">{E(KIND[r.get("kind", "timed")])}</span>
+    <span class="chip">WHICH WINS? #{r["no"]}</span> <span class="new" hidden>NEW</span> <span class="kind">{E(KIND[r.get("kind", "timed")])}</span>
     <h3>{vs(r["title"])}</h3>
     <div class="round"><span class="rn r1">ROUND 1</span><b>{E(r["r1"])}</b><code>{E(r["r1res"])}</code><span class="win">Winner: {E(r["r1w"])}</span></div>
     <div class="round"><span class="rn r2">ROUND 2</span><b>{E(r["r2"])}</b><code>{E(r["r2res"])}</code><span class="win">Winner: {E(r["r2w"])}</span></div>
@@ -72,6 +72,7 @@ details{{margin:0 0 10px}}summary{{cursor:pointer;font:700 14px "JetBrains Mono"
 .links{{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:0}}.links a{{font-weight:700}}
 .run{{font:700 14px "JetBrains Mono",monospace;background:var(--mint);border:2px solid var(--ink);border-radius:10px;padding:6px 10px;text-decoration:none}}
 .soon{{color:var(--grey);font-size:14px}}
+.new{{font:700 12px "JetBrains Mono",monospace;background:var(--red);color:#fff;border-radius:6px;padding:3px 8px;margin-left:4px;animation:pulse 1.6s ease-in-out infinite}}@keyframes pulse{{50%{{transform:scale(1.08)}}}}
 .kind{{font:700 12px "JetBrains Mono",monospace;color:var(--grey);border:2px solid #D9D0BF;border-radius:6px;padding:2px 6px;margin-left:4px;white-space:nowrap}}
 .free{{display:grid;grid-template-columns:1fr;gap:12px;align-items:center;background:var(--ink);color:var(--paper);border-radius:22px;padding:22px;margin:40px 0 0}}
 @media(min-width:640px){{.free{{grid-template-columns:1fr auto}}}}.free h2{{margin:0;color:var(--yel)}}.free p{{margin:6px 0 0;color:#D9D0BF}}
@@ -91,7 +92,7 @@ footer img{{width:110px;display:block;margin:0 auto 8px}}footer a{{font-weight:7
   </div>
   <img class="kage" src="img/kage-point.webp" alt="Kage, the ink ninja, pointing" width="300" height="383">
 </section>
-<h2>Every race so far</h2>
+<h2>Every race, newest first</h2>
 <p class="how">Races 1 to 5 count steps, so you will get exactly our numbers. Races 6 to 12 are timed on one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not. No. 7 has both.</p>
 <section class="races">
 {chr(10).join(cards)}
@@ -99,7 +100,10 @@ footer img{{width:110px;display:block;margin:0 auto 8px}}footer a{{font-weight:7
 <section class="free"><div><h2>The cheat sheet</h2><p>Every race on one page: both rounds, the winner, the rule to remember and the interview question it answers.</p><div class="cta"><a class="btn y" href="which-wins-cheatsheet.pdf">Download the PDF</a></div></div><img src="img/kage-cheer.webp" alt="Kage cheering" width="150" height="152"></section>
 </main>
 <footer><img src="img/kage-bow.webp" alt="Kage bowing" width="110" height="145">New race every day on <a href="https://www.instagram.com/whenyoutap/">Instagram @whenyoutap</a> · Code on <a href="https://github.com/whenyoutap/which-wins">GitHub</a><br>Want a race? Ask in the comments on any reel.</footer>
-</body></html>
+<script>
+// "NEW" on races posted in the last 3 days (each card carries its posting date).
+document.querySelectorAll(".race[data-posted]").forEach((c) => {{ const d = new Date(c.dataset.posted + "T00:00:00+05:30"); if (Date.now() - d < 3 * 864e5) c.querySelector(".new").hidden = false; }});
+</script></body></html>
 '''
 open("docs/index.html", "w").write(page)
 print("docs/index.html", len(page), "bytes,", len(R), "races")
