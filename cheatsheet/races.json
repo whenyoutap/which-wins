@@ -1,0 +1,129 @@
+[
+ {
+  "no": 6,
+  "folder": "06-cpu-vs-gpu",
+  "title": "CPU vs GPU",
+  "q": "Which is faster, the CPU or the GPU?",
+  "r1": "Multiply two 4096 x 4096 matrices",
+  "r1res": "GPU 14 ms, CPU 162 ms: GPU 11x faster",
+  "r1w": "GPU",
+  "r2": "10,000 steps, each needing the step before (x = x * 0.999 + 1)",
+  "r2res": "CPU 36 ms, GPU 156 ms: CPU 4x faster",
+  "r2w": "CPU",
+  "rule": "Work that splits into independent pieces goes to the GPU; work that runs step by step stays on the CPU.",
+  "iq": "Why do AI models run on GPUs?",
+  "ia": "They are mostly huge matrix multiplies, where every output cell can be computed at the same time.",
+  "run": [
+   "pip install torch   # a CUDA build, with an NVIDIA GPU",
+   "python3 cpu_vs_gpu.py"
+  ],
+  "setup": "Intel Core i9-14900HX laptop with an NVIDIA RTX 4070 Laptop GPU, PyTorch 2.8, median of 3 runs.",
+  "reel": "https://www.instagram.com/reel/DfhTzWFFL2x/"
+ },
+ {
+  "no": 8,
+  "folder": "08-python-vs-c",
+  "title": "Python vs C",
+  "q": "Which is faster, Python or C?",
+  "r1": "Add up the squares of 100,000,000 numbers in a plain loop",
+  "r1res": "C 63 ms, Python 3,882 ms: C 62x faster",
+  "r1w": "C",
+  "r2": "Same job, Python makes one NumPy call: np.dot(a, a)",
+  "r2res": "Python 34 ms, C's loop 63 ms",
+  "r2w": "Python (NumPy)",
+  "rule": "A plain Python loop is slow; one library call that runs the loop in compiled code is fast.",
+  "iq": "Why is Python slow, and why is it still used for AI?",
+  "ia": "The interpreter runs a loop one step at a time; the heavy loops in AI run in compiled code underneath (NumPy, PyTorch).",
+  "run": [
+   "gcc -O2 -o sum sum.c && ./sum",
+   "pip install numpy",
+   "python3 sum.py"
+  ],
+  "setup": "Intel Core i9-14900HX laptop, Python 3.10, NumPy 1.26, gcc 13.3 with -O2, median of 7 runs.",
+  "reel": "https://www.instagram.com/reel/Dfmc0c7jqz2/"
+ },
+ {
+  "no": 9,
+  "folder": "09-ram-vs-ssd",
+  "title": "RAM vs SSD",
+  "q": "Which is faster, RAM or an SSD?",
+  "r1": "Look up 100,000 records of 4 KB at random places in the same 1 GB",
+  "r1res": "RAM 46 ms, SSD 11,249 ms: RAM 245x faster",
+  "r1w": "RAM",
+  "r2": "The program holding the data is killed (kill -9)",
+  "r2res": "RAM: 0 bytes left. SSD file: all 1,073,741,824 bytes back, same checksum",
+  "r2w": "SSD",
+  "rule": "RAM is fast but forgets; disk is slow but remembers. Real systems use both.",
+  "iq": "Why do databases write a log to disk before changing data?",
+  "ia": "So that after a crash they can rebuild every change from the log; memory is wiped when the process dies.",
+  "run": [
+   "gcc -O2 -o ramssd ramssd.c",
+   "./ramssd mkfile data.bin          # writes a 1 GB test file here",
+   "./ramssd rnd-ram 100000",
+   "./ramssd rnd-ssd data.bin 100000   # reads straight from the drive (O_DIRECT, Linux)",
+   "rm data.bin"
+  ],
+  "setup": "Intel Core i9-14900HX laptop, NVMe SSD read from Linux inside WSL2 (which adds some delay to every disk request), gcc -O2, median of 5 runs. Round 1 reads with the system's in-memory copy switched off; read the normal way after one full read, the same lookups took about 58 ms.",
+  "reel": "https://www.instagram.com/reel/DfpBCuCDo2F/"
+ },
+ {
+  "no": 10,
+  "folder": "10-threads-vs-processes",
+  "title": "Threads vs Processes",
+  "q": "In Python, which is faster: threads or processes?",
+  "r1": "8 jobs of pure maths, all started at once",
+  "r1res": "8 processes 132 ms, 8 threads 702 ms: processes 5.3x faster",
+  "r1w": "Processes",
+  "r2": "1,000 tiny jobs, a new worker started for each",
+  "r2res": "Threads 65 ms, processes 1,124 ms: threads 17x faster",
+  "r2w": "Threads",
+  "rule": "Heavy calculation goes to processes; many small or waiting jobs go to threads.",
+  "iq": "What is the GIL?",
+  "ia": "In standard Python only one thread runs Python code at a time. Threads still help while waiting on files or the network, and they are cheap to start.",
+  "run": [
+   "python3 race.py"
+  ],
+  "setup": "Intel Core i9-14900HX laptop (20 cores), Python 3.10 on Linux, standard build with the GIL, median of 5 runs.",
+  "reel": "https://www.instagram.com/reel/Dfrl1w8jN62/"
+ },
+ {
+  "no": 11,
+  "folder": "11-sql-index",
+  "title": "Index vs No Index",
+  "q": "In SQL, is a table faster with an index or without?",
+  "r1": "Find one user by email among 5,000,000",
+  "r1res": "With index 0.0031 ms, without 121 ms: about 39,000x faster",
+  "r1w": "Index",
+  "r2": "Add 1,000,000 new users",
+  "r2res": "Without index 507 ms, with index 920 ms: 1.8x faster; the index also doubled the file (191 MB to 381 MB)",
+  "r2w": "No index",
+  "rule": "Lots of reads: add the index. Lots of writes: keep indexes few.",
+  "iq": "Why not index every column?",
+  "ia": "Each index makes every insert and update slower and takes disk space.",
+  "run": [
+   "python3 race.py .     # creates and deletes two test databases in the given folder (about 600 MB at peak)"
+  ],
+  "setup": "Intel Core i9-14900HX laptop, SQLite 3.52 from Python, median of 3 runs, lookup is the best of 5.",
+  "reel": ""
+ },
+ {
+  "no": 12,
+  "folder": "12-array-vs-linked-list",
+  "title": "Array vs Linked List",
+  "q": "Which is faster, an array or a linked list?",
+  "r1": "Add up 10,000,000 values",
+  "r1res": "Array 5.3 ms, shuffled linked list 1,060 ms",
+  "r1w": "Array",
+  "r2": "Insert 2,000 values at the front of 200,000",
+  "r2res": "Linked list 0.002 ms, array 42 ms",
+  "r2w": "Linked list",
+  "rule": "Arrays win at reading in order (the CPU fetches neighbours together); linked lists win at inserting at the front.",
+  "iq": "Why is a linked list slow to walk even though each step is O(1)?",
+  "ia": "Its nodes are scattered in memory, so almost every step is a cache miss; an array's values sit next to each other.",
+  "run": [
+   "gcc -O2 -o race race.c && ./race"
+  ],
+  "setup": "Intel Core i9-14900HX laptop, gcc -O2, median of 5 runs (14 Nov 2026).",
+  "reel": ""
+ }
+]

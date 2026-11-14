@@ -1,0 +1,8 @@
+*.db
+*.db-journal
+*.bin
+sum
+ramssd
+ll
+__pycache__/
+cheatsheet/page1-preview.png
