@@ -19,7 +19,11 @@
   "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one comparison or one array write. For each size, a typical shuffle (closest to the average of 2,000), seed 19.",
   "reel": "https://www.instagram.com/reel/DfJpLa0DRX3/",
   "kind": "counted",
-  "posted": "2026-10-31"
+  "posted": "2026-10-31",
+  "r1s": "Small lists",
+  "r1sw": "Insertion sort",
+  "r2s": "Big lists",
+  "r2sw": "Merge sort · 6.7× fewer steps"
  },
  {
   "no": 2,
@@ -41,7 +45,11 @@
   "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one comparison or one array write. A typical draw of list and targets (closest to the average of 3,000), seed 20.",
   "reel": "https://www.instagram.com/reel/DfMxc2GFm7D/",
   "kind": "counted",
-  "posted": "2026-11-01"
+  "posted": "2026-11-01",
+  "r1s": "First steps",
+  "r1sw": "Linear scan",
+  "r2s": "Find all 64",
+  "r2sw": "Binary search"
  },
  {
   "no": 3,
@@ -63,7 +71,11 @@
   "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one cell taken off the stack or queue. 13 x 13 maze with a few loops, a typical one of 3,000, seed 25.",
   "reel": "https://www.instagram.com/reel/DfZTrwMErfj/",
   "kind": "counted",
-  "posted": "2026-11-06"
+  "posted": "2026-11-06",
+  "r1s": "Get out first",
+  "r1sw": "DFS",
+  "r2s": "Shortest route",
+  "r2sw": "BFS"
  },
  {
   "no": 4,
@@ -85,7 +97,11 @@
   "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. One step is one junction taken off the queue. Roads: OpenStreetMap data read on 6 Nov 2026, included as osm.json (© OpenStreetMap contributors, ODbL). Fresh downloads can differ slightly.",
   "reel": "https://www.instagram.com/reel/DfcO3d2lGuW/",
   "kind": "counted",
-  "posted": "2026-11-07"
+  "posted": "2026-11-07",
+  "r1s": "Junctions checked",
+  "r1sw": "A* · 18× fewer",
+  "r2s": "Route",
+  "r2sw": "Same 3.74 km"
  },
  {
   "no": 5,
@@ -107,7 +123,11 @@
   "setup": "Counted steps, not timed: you should get exactly these numbers on any machine. The O(2ⁿ) lane is run for real on 10, 16 and 20 numbers to show it is exactly 2ⁿ; 60 is calculated.",
   "reel": "https://www.instagram.com/reel/DfeucPTj9xj/",
   "kind": "counted",
-  "posted": "2026-11-08"
+  "posted": "2026-11-08",
+  "r1s": "60 numbers",
+  "r1sw": "O(1) · 1 step",
+  "r2s": "Every subset",
+  "r2sw": "O(2ⁿ) · 36.5 years"
  },
  {
   "no": 6,
@@ -130,7 +150,11 @@
   "setup": "Intel Core i9-14900HX laptop with an NVIDIA RTX 4070 Laptop GPU, PyTorch 2.8, median of 3 runs.",
   "reel": "https://www.instagram.com/reel/DfhTzWFFL2x/",
   "kind": "timed",
-  "posted": "2026-11-09"
+  "posted": "2026-11-09",
+  "r1s": "Matrix maths",
+  "r1sw": "GPU · 11×",
+  "r2s": "Step by step",
+  "r2sw": "CPU · 4×"
  },
  {
   "no": 7,
@@ -152,7 +176,11 @@
   "setup": "The comparison counts are counted, not timed, and match on any machine (seed 34). The milliseconds are from one Intel Core i9-14900HX laptop, Python 3.10, median of 3, and will differ on yours.",
   "reel": "https://www.instagram.com/reel/Dfj5Mv4gdnR/",
   "kind": "counted + timed",
-  "posted": "2026-11-10"
+  "posted": "2026-11-10",
+  "r1s": "Comparisons",
+  "r1sw": "Heap · 18× fewer",
+  "r2s": "Time",
+  "r2sw": "Heap · 7×"
  },
  {
   "no": 8,
@@ -176,7 +204,11 @@
   "setup": "Intel Core i9-14900HX laptop, Python 3.10, NumPy 1.26, gcc 13.3 with -O2, median of 7 runs.",
   "reel": "https://www.instagram.com/reel/Dfmc0c7jqz2/",
   "kind": "timed",
-  "posted": "2026-11-11"
+  "posted": "2026-11-11",
+  "r1s": "Plain loop",
+  "r1sw": "C · 62×",
+  "r2s": "One NumPy call",
+  "r2sw": "Python"
  },
  {
   "no": 9,
@@ -202,7 +234,11 @@
   "setup": "Intel Core i9-14900HX laptop, NVMe SSD read from Linux inside WSL2 (which adds some delay to every disk request), gcc -O2, median of 5 runs. Round 1 reads with the system's in-memory copy switched off; read the normal way after one full read, the same lookups took about 58 ms.",
   "reel": "https://www.instagram.com/reel/DfpBCuCDo2F/",
   "kind": "timed",
-  "posted": "2026-11-12"
+  "posted": "2026-11-12",
+  "r1s": "Random reads",
+  "r1sw": "RAM · 245×",
+  "r2s": "Program crashes",
+  "r2sw": "SSD keeps it"
  },
  {
   "no": 10,
@@ -224,7 +260,11 @@
   "setup": "Intel Core i9-14900HX laptop (20 cores), Python 3.10 on Linux, standard build with the GIL, median of 5 runs.",
   "reel": "https://www.instagram.com/reel/Dfrl1w8jN62/",
   "kind": "timed",
-  "posted": "2026-11-13"
+  "posted": "2026-11-13",
+  "r1s": "Heavy maths",
+  "r1sw": "Processes · 5.3×",
+  "r2s": "1,000 tiny jobs",
+  "r2sw": "Threads · 17×"
  },
  {
   "no": 11,
@@ -246,7 +286,11 @@
   "setup": "Intel Core i9-14900HX laptop, SQLite 3.52 from Python, median of 3 runs, lookup is the best of 5.",
   "reel": "https://www.instagram.com/reel/DfuLNKNjQSt/",
   "kind": "timed",
-  "posted": "2026-11-14"
+  "posted": "2026-11-14",
+  "r1s": "Find one user",
+  "r1sw": "Index · 39,000×",
+  "r2s": "Add 1M rows",
+  "r2sw": "No index · 1.8×"
  },
  {
   "no": 12,
@@ -268,6 +312,10 @@
   "setup": "Intel Core i9-14900HX laptop, gcc -O2, median of 5 runs (14 Nov 2026).",
   "reel": "",
   "kind": "timed",
-  "posted": "2026-11-15"
+  "posted": "2026-11-15",
+  "r1s": "Read everything",
+  "r1sw": "Array · 201×",
+  "r2s": "Insert at front",
+  "r2sw": "Linked list"
  }
 ]
