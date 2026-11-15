@@ -77,13 +77,29 @@ footer img{animation:float 5s ease-in-out infinite}
 </section>
 <h2>Races</h2>
 <section class="races">
+<article class="race" data-posted="2026-11-16">
+  <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-13.webp" alt="Which Wins? No. 13: CPU vs GPU running AI" loading="lazy" width="120" height="213"></a>
+  <div class="body">
+    <p class="meta"><span class="no">#13</span><span class="new" hidden>NEW</span></p>
+    <h3><span class="pill y">CPU</span> <span class="vs">vs</span> <span class="pill m">GPU running AI</span></h3>
+    <ol class="rounds"><li data-w="b" data-x="3.7"><span>Model fits</span><b>GPU · 3.7×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="a" data-x="5.8"><span>Model too big</span><b>CPU · 5.8×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/13-cpu-vs-gpu-ai">▶ Run it</a></p>
+    <details><summary>Details</summary>
+      <p><b>Round 1.</b> Llama 3.1 8B, 4-bit (4.9 GB): fits in the GPU&#x27;s 8 GB: GPU 50.3 tokens/s, CPU 13.7</p>
+      <p><b>Round 2.</b> Llama 3.1 8B, 16-bit (16.1 GB): twice the GPU&#x27;s memory: CPU 5.0 tokens/s, GPU 0.86</p>
+      <p class="rule">A GPU is fastest while the whole model fits in its own memory. Past that, every word waits on data crossing from system RAM.</p>
+      <p><b>Interview:</b> Why does LLM inference speed depend so much on memory? Each new token reads every weight of the model once, so speed is limited by how fast memory delivers the weights, not by arithmetic.</p>
+      <p class="fine">Timed on one laptop: your times will differ, the winner should not.</p>
+    </details>
+  </div>
+</article>
 <article class="race" data-posted="2026-11-15">
-  <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-12.webp" alt="Which Wins? No. 12: Array vs Linked List" loading="lazy" width="120" height="213"></a>
+  <a class="thumb" href="https://www.instagram.com/reel/Dfwy3UvldWG/"><img src="img/race-12.webp" alt="Which Wins? No. 12: Array vs Linked List" loading="lazy" width="120" height="213"></a>
   <div class="body">
     <p class="meta"><span class="no">#12</span><span class="new" hidden>NEW</span></p>
     <h3><span class="pill y">Array</span> <span class="vs">vs</span> <span class="pill m">Linked List</span></h3>
     <ol class="rounds"><li data-w="a" data-x="201"><span>Read everything</span><b>Array · 201×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="b" data-x="23000"><span>Insert at front</span><b>Linked list</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
-    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/12-array-vs-linked-list">▶ Run it</a></p>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/12-array-vs-linked-list">▶ Run it</a><a class="ghost" href="https://www.instagram.com/reel/Dfwy3UvldWG/">Watch</a></p>
     <details><summary>Details</summary>
       <p><b>Round 1.</b> Add up 10,000,000 values: Array 5.3 ms, shuffled linked list 1,060 ms</p>
       <p><b>Round 2.</b> Insert 2,000 values at the front of 200,000: Linked list 0.002 ms, array 42 ms</p>

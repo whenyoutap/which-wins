@@ -16,10 +16,11 @@ Every race from [@whenyoutap](https://www.instagram.com/whenyoutap/) on Instagra
 | 10 | In Python, which is faster: threads or processes? | Processes | Threads | timed | [10-threads-vs-processes](10-threads-vs-processes/) |
 | 11 | In SQL, is a table faster with an index or without? | Index | No index | timed | [11-sql-index](11-sql-index/) |
 | 12 | Which is faster, an array or a linked list? | Array | Linked list | timed | [12-array-vs-linked-list](12-array-vs-linked-list/) |
+| 13 | Which runs an AI model faster on a laptop, the CPU or the GPU? | GPU | CPU | timed | [13-cpu-vs-gpu-ai](13-cpu-vs-gpu-ai/) |
 
 Each folder has the code, how to run it, our result and the one-line rule.
 
-Two kinds of race. **Counted** races (1 to 5) count steps, so you get exactly our numbers. **Timed** races (6 to 12) measure real time on one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not. No. 7 has both: counted comparisons and timed milliseconds. If yours doesn't match, open an issue with your numbers and your machine.
+Two kinds of race. **Counted** races (1 to 5) count steps, so you get exactly our numbers. **Timed** races (6 to 13) measure real time on one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not. No. 7 has both: counted comparisons and timed milliseconds. If yours doesn't match, open an issue with your numbers and your machine.
 
 **Want a race?** Open an issue or comment on any reel with "X vs Y" and Kage will race it.
 

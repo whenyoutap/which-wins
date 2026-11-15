@@ -354,7 +354,7 @@
    "gcc -O2 -o race race.c && ./race"
   ],
   "setup": "Intel Core i9-14900HX laptop, gcc -O2, median of 5 runs (14 Nov 2026).",
-  "reel": "",
+  "reel": "https://www.instagram.com/reel/Dfwy3UvldWG/",
   "kind": "timed",
   "posted": "2026-11-15",
   "r1s": "Read everything",
@@ -365,5 +365,35 @@
   "r1x": 201,
   "r2w_side": "b",
   "r2x": 23000
+ },
+ {
+  "no": 13,
+  "folder": "13-cpu-vs-gpu-ai",
+  "title": "CPU vs GPU running AI",
+  "q": "Which runs an AI model faster on a laptop, the CPU or the GPU?",
+  "r1": "Llama 3.1 8B, 4-bit (4.9 GB): fits in the GPU's 8 GB",
+  "r1res": "GPU 50.3 tokens/s, CPU 13.7",
+  "r1w": "GPU",
+  "r2": "Llama 3.1 8B, 16-bit (16.1 GB): twice the GPU's memory",
+  "r2res": "CPU 5.0 tokens/s, GPU 0.86",
+  "r2w": "CPU",
+  "rule": "A GPU is fastest while the whole model fits in its own memory. Past that, every word waits on data crossing from system RAM.",
+  "iq": "Why does LLM inference speed depend so much on memory?",
+  "ia": "Each new token reads every weight of the model once, so speed is limited by how fast memory delivers the weights, not by arithmetic.",
+  "run": [
+   "./race.sh path/to/llama-completion Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf Llama-3.1-8B-Instruct-BF16.gguf 16"
+  ],
+  "setup": "Intel Core i9-14900HX, RTX 4070 Laptop GPU (8 GB), llama.cpp b12416, median of 5 runs (15 Nov 2026).",
+  "reel": "",
+  "kind": "timed",
+  "posted": "2026-11-16",
+  "r1s": "Model fits",
+  "r1sw": "GPU · 3.7×",
+  "r2s": "Model too big",
+  "r2sw": "CPU · 5.8×",
+  "r1w_side": "b",
+  "r1x": 3.7,
+  "r2w_side": "a",
+  "r2x": 5.8
  }
 ]

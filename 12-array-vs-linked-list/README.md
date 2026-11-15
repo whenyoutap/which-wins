@@ -10,7 +10,7 @@ gcc -O2 -o race race.c && ./race
 
 ## Our result
 
-Intel Core i9-14900HX laptop, gcc -O2, median of 5 runs (14 Nov 2026). The reel is coming next.
+Intel Core i9-14900HX laptop, gcc -O2, median of 5 runs (14 Nov 2026).
 
 | Round | Job | Result | Winner |
 |---|---|---|---|
@@ -28,4 +28,4 @@ Arrays win at reading in order (the CPU fetches neighbours together); linked lis
 **Why is a linked list slow to walk even though each step is O(1)?**
 Its nodes are scattered in memory, so almost every step is a cache miss; an array's values sit next to each other.
 
-The reel is coming soon on [@whenyoutap](https://www.instagram.com/whenyoutap/).
+Watch the reel: https://www.instagram.com/reel/Dfwy3UvldWG/
