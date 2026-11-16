@@ -38,4 +38,4 @@ A GPU is fastest while the whole model fits in its own memory. Past that, every 
 **Why does LLM inference speed depend so much on memory?**
 Each new token reads every weight of the model once, so speed is limited by how fast memory delivers the weights, not by arithmetic.
 
-The reel is coming soon on [@whenyoutap](https://www.instagram.com/whenyoutap/).
+Watch the reel: https://www.instagram.com/reel/DfzXqMUEpyD/

@@ -384,7 +384,7 @@
    "./race.sh path/to/llama-completion Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf Llama-3.1-8B-Instruct-BF16.gguf 16"
   ],
   "setup": "Intel Core i9-14900HX, RTX 4070 Laptop GPU (8 GB), llama.cpp b12416, median of 5 runs (15 Nov 2026).",
-  "reel": "",
+  "reel": "https://www.instagram.com/reel/DfzXqMUEpyD/",
   "kind": "timed",
   "posted": "2026-11-16",
   "r1s": "Model fits",
@@ -395,5 +395,35 @@
   "r1x": 3.7,
   "r2w_side": "a",
   "r2x": 5.8
+ },
+ {
+  "no": 14,
+  "folder": "14-two-sum",
+  "title": "Two Sum: nested loops vs hash map",
+  "q": "LeetCode #1: check every pair, or remember what you've seen in a hash map?",
+  "r1": "Find the pair in 15,000 numbers (time)",
+  "r1res": "Hash map 0.93 ms, nested loops 3,591 ms",
+  "r1w": "Hash map",
+  "r2": "Extra memory while it runs",
+  "r2res": "Nested loops 284 bytes, hash map 1.18 MB",
+  "r2w": "Nested loops",
+  "rule": "A hash map trades memory for time: it stores every number it sees so each lookup is one step. Nested loops store nothing and pay with every pair.",
+  "iq": "What's the time and space complexity of each Two Sum solution?",
+  "ia": "Nested loops: O(n²) time, O(1) extra space. Hash map: O(n) time, O(n) extra space.",
+  "run": [
+   "python3 twosum.py"
+  ],
+  "setup": "Intel Core i9-14900HX laptop, Python 3.10, median of 7 runs (16 Nov 2026).",
+  "reel": "",
+  "kind": "timed",
+  "posted": "2026-11-17",
+  "r1s": "Time",
+  "r1sw": "Hash map · 3,844×",
+  "r2s": "Memory",
+  "r2sw": "Nested · 4,167×",
+  "r1w_side": "b",
+  "r1x": 3844,
+  "r2w_side": "a",
+  "r2x": 4167
  }
 ]

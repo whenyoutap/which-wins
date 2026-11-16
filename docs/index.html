@@ -77,13 +77,29 @@ footer img{animation:float 5s ease-in-out infinite}
 </section>
 <h2>Races</h2>
 <section class="races">
+<article class="race" data-posted="2026-11-17">
+  <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-14.webp" alt="Which Wins? No. 14: Two Sum: nested loops vs hash map" loading="lazy" width="120" height="213"></a>
+  <div class="body">
+    <p class="meta"><span class="no">#14</span><span class="new" hidden>NEW</span></p>
+    <h3><span class="pill y">Two Sum: nested loops</span> <span class="vs">vs</span> <span class="pill m">hash map</span></h3>
+    <ol class="rounds"><li data-w="b" data-x="3844"><span>Time</span><b>Hash map · 3,844×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="a" data-x="4167"><span>Memory</span><b>Nested · 4,167×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/14-two-sum">▶ Run it</a></p>
+    <details><summary>Details</summary>
+      <p><b>Round 1.</b> Find the pair in 15,000 numbers (time): Hash map 0.93 ms, nested loops 3,591 ms</p>
+      <p><b>Round 2.</b> Extra memory while it runs: Nested loops 284 bytes, hash map 1.18 MB</p>
+      <p class="rule">A hash map trades memory for time: it stores every number it sees so each lookup is one step. Nested loops store nothing and pay with every pair.</p>
+      <p><b>Interview:</b> What&#x27;s the time and space complexity of each Two Sum solution? Nested loops: O(n²) time, O(1) extra space. Hash map: O(n) time, O(n) extra space.</p>
+      <p class="fine">Timed on one laptop: your times will differ, the winner should not.</p>
+    </details>
+  </div>
+</article>
 <article class="race" data-posted="2026-11-16">
-  <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-13.webp" alt="Which Wins? No. 13: CPU vs GPU running AI" loading="lazy" width="120" height="213"></a>
+  <a class="thumb" href="https://www.instagram.com/reel/DfzXqMUEpyD/"><img src="img/race-13.webp" alt="Which Wins? No. 13: CPU vs GPU running AI" loading="lazy" width="120" height="213"></a>
   <div class="body">
     <p class="meta"><span class="no">#13</span><span class="new" hidden>NEW</span></p>
     <h3><span class="pill y">CPU</span> <span class="vs">vs</span> <span class="pill m">GPU running AI</span></h3>
     <ol class="rounds"><li data-w="b" data-x="3.7"><span>Model fits</span><b>GPU · 3.7×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="a" data-x="5.8"><span>Model too big</span><b>CPU · 5.8×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
-    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/13-cpu-vs-gpu-ai">▶ Run it</a></p>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/13-cpu-vs-gpu-ai">▶ Run it</a><a class="ghost" href="https://www.instagram.com/reel/DfzXqMUEpyD/">Watch</a></p>
     <details><summary>Details</summary>
       <p><b>Round 1.</b> Llama 3.1 8B, 4-bit (4.9 GB): fits in the GPU&#x27;s 8 GB: GPU 50.3 tokens/s, CPU 13.7</p>
       <p><b>Round 2.</b> Llama 3.1 8B, 16-bit (16.1 GB): twice the GPU&#x27;s memory: CPU 5.0 tokens/s, GPU 0.86</p>

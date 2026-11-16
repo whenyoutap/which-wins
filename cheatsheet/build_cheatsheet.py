@@ -21,6 +21,6 @@ h1{{font-size:22pt;margin:0}}h1 em{{font-style:normal;background:#FFD23F;padding
 .f{{margin-top:10px;font:700 9pt "JetBrains Mono";text-align:center}}.n{{margin-top:4px;text-align:center;color:#6B625A;font-size:8.5pt}}</style></head><body>
 <h1>Which <em>Wins?</em> Cheat sheet</h1><p class="sub">Real code, raced on a real laptop. Two rounds each; the rule is what to remember.</p>
 <div class="g">{cards}</div>
-<div class="f">@whenyoutap · run every race yourself: github.com/whenyoutap</div><div class="n">Counted races (1 to 5, and No. 7's comparisons) give the same numbers on any machine. Timed races (6 to 13) are from one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not.</div>
+<div class="f">@whenyoutap · run every race yourself: github.com/whenyoutap</div><div class="n">Counted races (1 to 5, and No. 7's comparisons) give the same numbers on any machine. Timed races (6 to 14) are from one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not.</div>
 </body></html>""")
 print(len(R), "races")
