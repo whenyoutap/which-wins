@@ -77,6 +77,38 @@ footer img{animation:float 5s ease-in-out infinite}
 </section>
 <h2>Races</h2>
 <section class="races">
+<article class="race" data-posted="2026-11-18">
+  <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-16.webp" alt="Which Wins? No. 16: Sort everything vs a heap" loading="lazy" width="120" height="213"></a>
+  <div class="body">
+    <p class="meta"><span class="no">#16</span><span class="new" hidden>NEW</span></p>
+    <h3><span class="pill y">Sort everything</span> <span class="vs">vs</span> <span class="pill m">a heap</span></h3>
+    <ol class="rounds"><li data-w="b" data-x="13"><span>Top 10</span><b>Heap · 13×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="a" data-x="5.4"><span>Top half</span><b>Sort · 5.4×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/16-sort-vs-heap">▶ Run it</a></p>
+    <details><summary>Details</summary>
+      <p><b>Round 1.</b> The top 10 of 1,000,000: Heap 11.0 ms, sorted() 146 ms</p>
+      <p><b>Round 2.</b> The top half (500,000): sorted() 150 ms, heap 811 ms</p>
+      <p class="rule">A heap of size K costs O(n log K): great when K is small. When K is close to n, one O(n log n) sort is simpler and faster.</p>
+      <p><b>Interview:</b> How do you find the top K elements of a huge list? Keep a min-heap of size K while scanning once: O(n log K) time, O(K) space. If K is large, sort instead.</p>
+      <p class="fine">Timed on one laptop: your times will differ, the winner should not.</p>
+    </details>
+  </div>
+</article>
+<article class="race" data-posted="2026-11-18">
+  <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-15.webp" alt="Which Wins? No. 15: Linear search vs binary search" loading="lazy" width="120" height="213"></a>
+  <div class="body">
+    <p class="meta"><span class="no">#15</span><span class="new" hidden>NEW</span></p>
+    <h3><span class="pill y">Linear search</span> <span class="vs">vs</span> <span class="pill m">binary search</span></h3>
+    <ol class="rounds"><li data-w="a" data-x="8"><span>One search</span><b>Linear · 8×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="b" data-x="115200"><span>100 searches</span><b>Binary · 115,200×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/15-linear-vs-binary">▶ Run it</a></p>
+    <details><summary>Details</summary>
+      <p><b>Round 1.</b> One search in 1,000,000 unsorted numbers: Linear 17.6 ms, binary (sort first) 142.1 ms</p>
+      <p><b>Round 2.</b> 100 searches once the list is sorted: Binary 0.023 ms, linear 2,650 ms</p>
+      <p class="rule">Binary search needs a sorted list. For one search in unsorted data, a scan is cheaper than sorting; once sorted, every search takes about 20 steps.</p>
+      <p><b>Interview:</b> When would you NOT use binary search? When the data isn&#x27;t sorted and you only search it once or twice: sorting costs O(n log n), more than an O(n) scan.</p>
+      <p class="fine">Timed on one laptop: your times will differ, the winner should not.</p>
+    </details>
+  </div>
+</article>
 <article class="race" data-posted="2026-11-17">
   <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-14.webp" alt="Which Wins? No. 14: Two Sum: nested loops vs hash map" loading="lazy" width="120" height="213"></a>
   <div class="body">
