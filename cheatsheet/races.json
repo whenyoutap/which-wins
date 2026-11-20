@@ -485,5 +485,35 @@
   "r1x": 13,
   "r2w_side": "a",
   "r2x": 5.4
+ },
+ {
+  "no": 17,
+  "folder": "17-cpu-gpu-split",
+  "title": "CPU vs GPU, then both",
+  "q": "The AI model is twice the size of the GPU's memory. CPU alone, GPU alone, or both split?",
+  "r1": "CPU vs GPU, Llama 3.1 8B at 16-bit (16.1 GB) on an 8 GB GPU",
+  "r1res": "CPU 4.79 tokens/s, GPU 0.85",
+  "r1w": "CPU",
+  "r2": "CPU vs both, split (12 of 33 layers on the GPU)",
+  "r2res": "Split 6.22 tokens/s, CPU 4.79",
+  "r2w": "Split",
+  "rule": "Put on the GPU what fits. Let the CPU run the rest.",
+  "iq": "How do you run a model that is bigger than your GPU's memory?",
+  "ia": "Offload part of it: keep as many layers as fit in GPU memory and run the rest on the CPU. The layers on faster memory make each token faster.",
+  "run": [
+   "./race.sh path/to/llama-completion Llama-3.1-8B-Instruct-BF16.gguf 16"
+  ],
+  "setup": "Intel Core i9-14900HX, RTX 4070 Laptop GPU (8 GB), llama.cpp b12416, median of 5 runs (20 Nov 2026).",
+  "reel": "https://www.instagram.com/reel/Df9q1gwlUMs/",
+  "kind": "timed",
+  "posted": "2026-11-20",
+  "r1s": "CPU vs GPU",
+  "r1sw": "CPU · 5.7×",
+  "r2s": "CPU vs both",
+  "r2sw": "Split · 1.3×",
+  "r1w_side": "a",
+  "r1x": 5.7,
+  "r2w_side": "b",
+  "r2x": 1.3
  }
 ]

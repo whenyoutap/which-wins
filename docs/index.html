@@ -77,6 +77,22 @@ footer img{animation:float 5s ease-in-out infinite}
 </section>
 <h2>Races</h2>
 <section class="races">
+<article class="race" data-posted="2026-11-20">
+  <a class="thumb" href="https://www.instagram.com/reel/Df9q1gwlUMs/"><img src="img/race-17.webp" alt="Which Wins? No. 17: CPU vs GPU, then both" loading="lazy" width="120" height="213"></a>
+  <div class="body">
+    <p class="meta"><span class="no">#17</span><span class="new" hidden>NEW</span></p>
+    <h3><span class="pill y">CPU</span> <span class="vs">vs</span> <span class="pill m">GPU, then both</span></h3>
+    <ol class="rounds"><li data-w="a" data-x="5.7"><span>CPU vs GPU</span><b>CPU · 5.7×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li><li data-w="b" data-x="1.3"><span>CPU vs both</span><b>Split · 1.3×</b><i class="lanes"><i class="ln a"></i><i class="ln b"></i></i></li></ol>
+    <p class="act"><a class="run" href="https://github.com/whenyoutap/which-wins/tree/main/17-cpu-gpu-split">▶ Run it</a><a class="ghost" href="https://www.instagram.com/reel/Df9q1gwlUMs/">Watch</a></p>
+    <details><summary>Details</summary>
+      <p><b>Round 1.</b> CPU vs GPU, Llama 3.1 8B at 16-bit (16.1 GB) on an 8 GB GPU: CPU 4.79 tokens/s, GPU 0.85</p>
+      <p><b>Round 2.</b> CPU vs both, split (12 of 33 layers on the GPU): Split 6.22 tokens/s, CPU 4.79</p>
+      <p class="rule">Put on the GPU what fits. Let the CPU run the rest.</p>
+      <p><b>Interview:</b> How do you run a model that is bigger than your GPU&#x27;s memory? Offload part of it: keep as many layers as fit in GPU memory and run the rest on the CPU. The layers on faster memory make each token faster.</p>
+      <p class="fine">Timed on one laptop: your times will differ, the winner should not.</p>
+    </details>
+  </div>
+</article>
 <article class="race" data-posted="2026-11-18">
   <a class="thumb" href="https://www.instagram.com/whenyoutap/"><img src="img/race-16.webp" alt="Which Wins? No. 16: Sort everything vs a heap" loading="lazy" width="120" height="213"></a>
   <div class="body">

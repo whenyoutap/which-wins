@@ -20,10 +20,11 @@ Every race from [@whenyoutap](https://www.instagram.com/whenyoutap/) on Instagra
 | 14 | LeetCode #1: check every pair, or remember what you've seen in a hash map? | Hash map | Nested loops | timed | [14-two-sum](14-two-sum/) |
 | 15 | Is binary search always faster than a linear scan? | Linear | Binary | timed | [15-linear-vs-binary](15-linear-vs-binary/) |
 | 16 | To get the top K of a million numbers, sort them all or keep a heap? | Heap | Sort | timed | [16-sort-vs-heap](16-sort-vs-heap/) |
+| 17 | The AI model is twice the GPU's memory: CPU alone, GPU alone, or both split? | CPU | Split | timed | [17-cpu-gpu-split](17-cpu-gpu-split/) |
 
 Each folder has the code, how to run it, our result and the one-line rule.
 
-Two kinds of race. **Counted** races (1 to 5) count steps, so you get exactly our numbers. **Timed** races (6 to 16) measure real time on one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not. No. 7 has both: counted comparisons and timed milliseconds. If yours doesn't match, open an issue with your numbers and your machine.
+Two kinds of race. **Counted** races (1 to 5) count steps, so you get exactly our numbers. **Timed** races (6 to 17) measure real time on one Intel Core i9-14900HX laptop: your times will differ, the winner of each round should not. No. 7 has both: counted comparisons and timed milliseconds. If yours doesn't match, open an issue with your numbers and your machine.
 
 **Want a race?** Open an issue or comment on any reel with "X vs Y" and Kage will race it.
 
